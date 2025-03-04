@@ -1,0 +1,23 @@
+{
+  "name": "algorithm",
+  "version": "1.0.0",
+  "description": "딥다이브 `코딩하는 감자들` 알고리즘 스터디",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DEEPDIVE-coding-potatoes/Algorithm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DEEPDIVE-coding-potatoes/Algorithm/issues"
+  },
+  "homepage": "https://github.com/DEEPDIVE-coding-potatoes/Algorithm#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
