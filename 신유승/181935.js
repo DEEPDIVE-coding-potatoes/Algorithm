@@ -14,4 +14,10 @@ function solution(n) {
   }
 
   return answer;
+
+  // 좋아요가 많은 풀이
+  // if (n % 2 === 1)
+  //   return (n + 1) / 2 * ((n + 1) / 2);
+  // else
+  //   return n * (n + 1) * (n + 2) / 6;
 }
