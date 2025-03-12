@@ -19,5 +19,8 @@
   "homepage": "https://github.com/DEEPDIVE-coding-potatoes/Algorithm#readme",
   "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "algorithm": "file:"
   }
 }
