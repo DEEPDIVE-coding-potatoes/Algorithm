@@ -16,3 +16,7 @@ function solution(arr, idx) {
   }
   return -1;
 }
+
+//좋아요 많은 풀이
+//const solution=(a,i)=>a.indexOf(1,i);
+//indexOf에 두 번째 파라미터를 넣으면 그의 인덱스보다 후의 인덱스에서 주어진 값을 찾는다.
