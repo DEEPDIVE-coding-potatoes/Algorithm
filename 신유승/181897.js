@@ -21,19 +21,15 @@
 
 function solution(n, slicer, num_list) {
   const [a, b, c] = slicer;
+  
   switch (n) {
     case 1:
-      num_list.slice(b);
-      break;
+      return num_list.slice(0, b + 1);
     case 2:
-      num_list.slice(-a);
-      break;
+      return num_list.slice(a);
     case 3:
-      num_list.slice(a, b);
-      break;
+      return num_list.slice(a, b + 1);
     case 4:
-      num_list.slice(a, b, c);
-      break;
+      return num_list.slice(a, b + 1).filter((_, i) => i % c === 0);
   }
-  return num_list
 }
