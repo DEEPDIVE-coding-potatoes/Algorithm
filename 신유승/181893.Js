@@ -14,7 +14,7 @@
 
 function solution(arr, query) {
   query.forEach((element, i) => {
-    i % 2 === 0 ? arr = arr.slice(0,  element + 1) : arr.slice(element + 1);
+    arr = i % 2 === 0 ? arr.slice(0, element + 1) : arr.slice(element);
   });
 
   return arr;
