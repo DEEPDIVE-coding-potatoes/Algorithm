@@ -21,3 +21,12 @@ function solution(n) {
 // const solution = (n) => {
 //   return parseInt([...n.toString(3)].reverse().join(""), 3);
 // }
+
+/**
+ * 위 풀이 해석
+ * 1. n.toString(3) - n을 3진법으로 변경
+ * 2. [...n.toString(3)] - 3진법으로 변경된 문자열을 분해
+ * 3. .reverse() - 배열 뒤집기
+ * 4. .join("") - 배열 합치기
+ * 5. parseInt(문자열, 3) - 3진법으로 된 문자열을 10진법 숫자로 변환
+ */
