@@ -16,5 +16,5 @@ def solution(s):
     i += 1
   
   return result
-
+ 
   
