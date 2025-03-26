@@ -63,32 +63,51 @@
 
 
 
-// 검색하면서 풀었음
+
+// 다시 풀었음
 function solution(schedules, timelogs, startday) {
-  let answer = 0;
+  let result = 0;
 
-  // 1. 출근 희망 시각 + 10분 계산 함수
-  const getMaxArrivalTime = (time) => time + 10;
+  // 각 직원별로 확인
+  schedules.forEach((schedule, i) => {
+      // 출근 희망 시각을 시, 분으로 나누기
+      let time = [Math.floor(schedule / 100), schedule % 100];
+      let check = 0;  // 평일 출근 체크 카운트
+      let cur = startday;  // 시작 요일
 
-  // 2. 시작 요일을 기준으로 실제 요일에 맞게 출근 기록을 확인
-  for (let i = 0; i < timelogs.length; i++) {
-    let isPassed = true;
+      // 출근 희망 시각에 10분 추가
+      time[1] += 10;
 
-    // 3. 각 직원의 출근 기록을 순회
-    for (let j = 0; j < 5; j++) {  // 평일 (월~금: 0~4)
-      const attendTime = timelogs[i][(startday + j - 1) % 7];
-      const scheduledTime = schedules[i];
-      const maxArrivalTime = getMaxArrivalTime(scheduledTime);
-      if (attendTime > maxArrivalTime) {
-        isPassed = false;
-        break;
+      // 분이 60 이상이면 시간 1 증가, 분은 60 빼기
+      if (time[1] >= 60) {
+          time[0] += 1;
+          time[1] -= 60;
       }
-    }
-    // 4. 평일에 모두 출근한 직원은 상품을 받음
-    if (isPassed) answer++;
-  }
-  return answer;
-}
 
+      // 출근 인정 시각
+      const d = time[0] * 100 + time[1];
+
+      // 각 출근 기록 확인
+      timelogs[i].forEach(log => {
+          const [h, m] = [Math.floor(log / 100), log % 100];
+          const t = h * 100 + m;  // 실제 출근 시각
+
+          // 평일(1~5) 동안 출근 시각 비교
+          if (cur <= 5 && t <= d) {
+              check++;  // 출근 시각이 늦지 않으면 체크
+          }
+
+          // 요일 순환 (7일 주기)
+          cur = cur === 7 ? 1 : cur + 1;
+      });
+
+      // 평일 5일 모두 출근한 경우
+      if (check === 5) {
+          result++;  // 상품 받을 자격 있는 직원 수 증가
+      }
+  });
+
+  return result;  // 상품을 받을 자격이 있는 직원 수 반환
+}
 
 
